@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Carreras</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1e1e2e;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+    .btton, .form-control {
+      border-radius: 20px;
+    }
+    .btton {
+      background: #4b6cb7; 
+      background: linear-gradient(to right, #182848, #4b6cb7);
+      color: #ffffff;
+    }
+    .btton:hover {
+      background: #4b6cb7;
+      background: linear-gradient(to right, #4b6cb7, #182848);
+    }
+    .form-control {
+      background-color: #2a2a40;
+      color: #ffffff;
+    }
+    .search-section{
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="search-section text-center">
+      <h2>Carreras</h2>
+      <div class="row align-items-center mt-4">
+        <div class="col-auto">
+          <label for="buscar_id" class="form-label mb-0">Introduce Codigo de Carrera</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="buscar_id" placeholder="Buscar...">
+        </div>
+        <div class="col-auto">
+          <button class="btn btton">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-section">
+      <div class="mb-3">
+        <label for="id_carrera" class="form-label">ID</label>
+        <input type="text" id="id_carrera" class="form-control" placeholder="Ingresa un ID...">
+      </div>
+
+      <div class="mb-3">
+        <label for="nombre_carrera" class="form-label">Nombre De La Carrera</label>
+        <input type="text" id="nombre_carrera" class="form-control" placeholder="Ingresa un Nombre Valido...">
+      </div>
+
+      <div class="mb-3">
+        <label for="numero_semestres" class="form-label">Ingrese El Número De Semestres</label>
+        <input type="number" id="numero_semestres" class="form-control" min="1" max="20" step="1" placeholder="Un número entre 1 al 20">
+      </div>
+
+
+
+      <div class="mb-3 row">
+        <div class="col-auto">
+          <button class="btn btton" id="nuevo">Nuevo</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btton" id="guardar">Guardar</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btton" id="cancelar">Cancelar</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btton" id="editar">Editar</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btton" id="baja">Baja</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

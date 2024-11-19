@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias</title>
+    <style>
+        body{
+            background-color: #1e1e2e;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        #busqueda{
+            display: grid;
+            gap: 10px;
+            grid-auto-flow: column;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+            
+        }
+        #buscarboton{
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #0b2047;
+        }
+        #inputs{
+            display: grid;
+            grid-template-columns: repeat(2,1);
+            
+            padding-left: 10%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            padding-right: 10%;
+
+        }
+        #buttons{
+            display: grid;
+            gap: 10px;
+            grid-auto-flow: column;
+            gap: 50px;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        .input{
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+        #buscar_id{
+            width: 200px;
+        }
+        label{
+            display: inline-block;
+            width: 200px;
+        }
+        input{
+            height: 40px;
+            border-radius: 20px;
+            width: 1000px;
+            background-color: #2a2a40;
+        }
+        select{
+            height: 45px;
+            background-color: #2a2a40;
+            border-radius: 20px;
+            color: white;
+
+        }
+        button{
+            height: 45px;
+            border-radius: 20px;
+            background-color: #0b2047;
+            color: white;
+        }
+        h2{
+            text-align: center;
+            padding: 1%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Materias</h2>
+    <div id="busqueda">
+        
+        <label>Ingrese codigo materia: </label>
+        <input type="text" id="buscar_id">
+        <button id="buscarboton">Buscar</button>
+    </div>
+    <div id="inputs">
+        <div class="input">
+            <label for="">ID: </label><br>
+            <input type="text" id="id_usuario">
+        </div>
+        <div class="input">
+            <label for="">Asignatura: </label><br>
+            <input type="text" id="asignatura">
+        </div>
+        <div class="input">
+            <label for="">Creditos: </label><br>
+            <input type="text" id="creditos">
+        </div>
+        <div class="input">
+            <label for="">Semestre: </label><br>
+            <input type="text" id="semestre">
+        </div>
+        <div class="input">
+            <label for="">Carrera: </label><br>
+            <select name="carrera" id="carrera">
+                <option value="">--Seleccionar--</option>
+            </select>
+        </div>
+
+    </div>
+    <div id="buttons">
+        <button id="nuevo">Nuevo</button>
+        <button id="guardar">Guardar</button>
+        <button id="cancelar">Cancelar</button>
+        <button id="editar">Editar</button>
+        <button id="baja">Baja</button>
+    </div>
+</body>
+</html>

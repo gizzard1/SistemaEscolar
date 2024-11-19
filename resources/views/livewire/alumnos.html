@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+</head>
+<body>
+    <h2>Alumnos</h2>
+    <div id="busqueda">
+        
+        <label>Ingrese codigo alumno: </label>
+        <input type="text" id="buscar_id">
+        <button id="buscarboton">Buscar</button>
+    </div>
+    <div id="inputs">
+        <div class="input">
+            <label for="">ID: </label><br>
+            <input type="text" id="id_usuario">
+        </div>
+        <div class="input">
+            <label for="">Nombre: </label><br>
+            <input type="text" id="nombre_usuario">
+        </div>
+        <div class="input">
+            <label for="">A Paterno: </label><br>
+            <input type="text" id="apellido1_usuario">
+        </div>
+        <div class="input">
+            <label for="">A Materno: </label><br>
+            <input type="text" id="apellido2_usuario">
+        </div>
+        <div class="input">
+            <label for="">Email: </label><br>
+            <input type="email" id="email">
+        </div>
+        <div class="input">
+            <label for="">Estado: </label><br>
+            <select name="estado" id="estado">
+                <option value="">--Seleccionar--</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="">Fecha Nac: </label><br>
+            <input type="text" id="fecha_nac">
+        </div>
+        <div class="input">
+            <label for="">Carrera: </label><br>
+            <select name="carrera" id="carrera">
+                <option value="">--Seleccionar--</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="">Materia: </label><br>
+            <select name="materia" id="materia">
+                <option value="">--Seleccionar--</option>
+            </select>
+            <input type="text" name="" id="materias" readonly>
+        </div>
+
+    </div>
+    <div id="buttons">
+        <button id="nuevo">Nuevo</button>
+        <button id="guardar">Guardar</button>
+        <button id="cancelar">Cancelar</button>
+        <button id="editar">Editar</button>
+        <button id="baja">Baja</button>
+    </div>
+</body>
+</html>

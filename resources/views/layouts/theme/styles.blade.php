@@ -1,0 +1,9 @@
+<link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style.css') }}" rel="stylesheet"> 
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
+<link href="{{ asset('vendor/toastr/css/toastr.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/wordpress-admin.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/slick-loader.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/flatpickr.min.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
