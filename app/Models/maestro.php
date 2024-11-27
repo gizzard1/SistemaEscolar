@@ -8,12 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class maestro extends Model
 {
     use HasFactory;
-    protected $fillable = [ 
+    protected $fillable = [
+        'nombre',
+        'apellido_materno',
+        'apellido_paterno',
         'grado',
-        'user_id'
+        'carrera_id',
+        'user_id',
     ];
 
-    public function usuario(){
-        return $this -> hasOne(usuario::class, 'user_id');
+    public function usuario()
+    {
+        return $this -> hasOne(User::class, 'user_id');
+    }
+    public function grupos()
+    {
+        return $this->hasMany(grupo::class,'maestro_id');
     }
 }

@@ -2,20 +2,17 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\carrera;
-use App\Models\materia;
+use App\Models\room;
 use Livewire\Component;
 
-class Materias extends Component
+class Salones extends Component
 {
     public $search;
-    public materia $materia;
-    public $carrera_id;
+    public room $room;
 
     protected $rules = [
-        'materia.asignatura' => 'required',
-        'materia.creditos' => 'required',
-        'materia.semestre' => 'required',
+        'room.nombre' => 'required|min:2|max:255|unique:rooms,name',
+        'room.edificio' => 'required|min:2|max:255',
     ];
 
     public function mount()
@@ -25,12 +22,12 @@ class Materias extends Component
     
     private function loadDefault()
     {
-        $this->materia=new materia();
+        $this->room=new room;
         $this->emit('refresh');
     }
     public function render()
     {
-        return view('livewire.materias',['carreras' => carrera::all()]);
+        return view('livewire.salones');
     }
     protected $listeners = [
         'refresh' => '$refresh',
@@ -41,16 +38,17 @@ class Materias extends Component
     public function searching($searchText)
     {
         $this->search = trim($searchText);
-        $this->materia = $this->loadMateria() ?? new materia();
+        $this->room = $this->loadRooms() ?? new room();
     }
     
-    private function loadMateria()
+    private function loadRooms()
     {
         try{
-            $query = materia::when($this->search, function ($query) {
+            $query = room::when($this->search, function ($query) {
                     // Aplica la búsqueda solo si $this->search no está vacío
                     $query->where(function ($query) {
-                        $query->where('asignatura', 'like', "%{$this->search}%");
+                        $query->where('nombre', 'like', "%{$this->search}%")
+                            ->orWhere('edificio', 'like', "%{$this->search}%");
                     });
                 })
                 ->first();
@@ -62,7 +60,7 @@ class Materias extends Component
     
     public function delete()
     {
-        $this -> destroy();
+        $this->destroy();
     }
 
     public function cancel()
@@ -72,28 +70,29 @@ class Materias extends Component
 
     public function store()
     {
+        $this->rules['room.nombre'] = $this->room->id > 0 ? "nullable|min:2|max:255|unique:rooms,nombre,{$this->room->id}" : 'nullable|min:2|max:255|unique:rooms,nombre';
         $this->validate($this->rules);
             
         try{
-            $this->materia->carrera_id = $this->carrera_id;
-            $this->materia->save();
-
+            $this->room->save();
             $this->dispatchBrowserEvent('noty',['msg'=>'SOLICITUD PROCESADA CON ÉXITO']);
             $this->emit('refresh');
-            $this->materia=new materia;
+            $this->room=new room;
         }catch(\Throwable $th){
-            $this->dispatchBrowserEvent('noty-error', ['msg' =>  "Código de error: 96202materias"] );
+            $this->dispatchBrowserEvent('noty-error', ['msg' =>  "Código de error: 96202rooms"] );
         } 
     }
-    public function destroy(): void
+    public function destroy()
     {
         try{
-            $this->materia->delete();
+            $this->room->delete();
             $this->loadDefault();
             $this->dispatchBrowserEvent('noty',['msg'=>'ALUMNO ELIMINADO']);
         }catch(\Throwable $th){
-            $this->dispatchBrowserEvent('noty-error', ['msg' =>  "Código de error: 112203materias"] );
+            $this->dispatchBrowserEvent('noty-error', ['msg' =>  "Código de error: 112203rooms"] );
         } 
         
     }
 }
+
+

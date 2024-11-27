@@ -18,4 +18,12 @@ class materia extends Model
     public function carrera(){
         return $this -> belongsTo(carrera::class, 'carrera_id');
     }
+    public function grupos()
+    {
+        return $this->hasMany(grupo::class);
+    }
+    public function alumnosRegistrados()
+    {
+        return $this->belongsToMany(alumno::class, 'prerregistros', 'materia_id', 'alumno_id');
+    }
 }

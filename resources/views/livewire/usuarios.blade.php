@@ -39,9 +39,6 @@
         <div class="col-auto">
           <button class="btn btton" id="cancelar" wire:click = "cancel">Cancelar</button>
         </div>
-        <div class="col-auto">
-          <button class="btn btton" id="baja" wire:click = "delete">Baja</button>
-        </div>
     </div>
 </div>
 @endif

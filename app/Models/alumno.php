@@ -21,4 +21,12 @@ class alumno extends Model
     public function usuario(){
         return $this ->belongsTo(User::class, 'user_id');
     }
+    public function materiasRegistradas()
+    {
+        return $this->belongsToMany(materia::class,'prerregistros','materia_id','alumno_id');
+    }
+    public function grupos()
+    {
+        return $this->belongsToMany(grupo::class,'grupos_alumnos','alumno_id','grupo_id');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\horario;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Horarios extends Component
@@ -42,11 +43,32 @@ class Horarios extends Component
         $this->search = trim($searchText);
         $this->horario = $this->loadHorario() ?? new horario();
     }
+    public function updatedHorarioHoraInicio()
+    {
+        $this->updateTurno();
+    }
+    
+    private function updateTurno()
+    {
+        if ($this->horario->hora_inicio) { // Cambiado a objeto
+            $horaInicio = Carbon::parse($this->horario->hora_inicio);
+    
+            if ($horaInicio->between(Carbon::parse('07:00:00'), Carbon::parse('12:00:00'))) {
+                $this->horario->turno = 'matutino';
+            } elseif ($horaInicio->between(Carbon::parse('12:01:00'), Carbon::parse('21:00:00'))) {
+                $this->horario->turno = 'vespertino';
+            } else {
+                $this->horario->turno = 'nocturno';
+            }
+        } else {
+            $this->horario->turno = '';
+        }
+    }
     
     private function loadHorario()
     {
         try{
-            $query = horario::when($this->search, function ($query) {
+            $query = horario::with('grupos')->when($this->search, function ($query) {
                     // Aplica la búsqueda solo si $this->search no está vacío
                     $query->where(function ($query) {
                         $query->where('day_week', 'like', "%{$this->search}%")
@@ -62,9 +84,9 @@ class Horarios extends Component
         }
     }
     
-    public function delete($horario)
+    public function delete()
     {
-        $this -> destroy($horario);
+        $this -> destroy();
     }
 
     public function cancel()

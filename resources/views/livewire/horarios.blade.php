@@ -6,17 +6,6 @@
 
     <div class="input-section">
 
-      <!-- ComboBox!!!!!!!!!!!!!!! -->
-      <div class="mb-3">
-        <label for="comboBox" class="form-label">Turno</label>
-        <select wire:model="horario.turno" class="form-select form-control" id="comboBox">
-          <option value="matutino">Seleccionar</option>
-          <option value="matutino">Matutino</option>
-          <option value="vespertino">Vespertino</option>
-      </select>
-          @error('horario.turno') <span class = "text-danger">Corrige este campo</span>@enderror
-      </div>
-
       <div class="mb-3 row">
         <div class="col">
             <label for="hora_inicio" class="form-label">Hora inicio</label>
@@ -31,6 +20,17 @@
       </div>
       
       
+      <!-- ComboBox!!!!!!!!!!!!!!! -->
+      <div class="mb-3">
+        <label for="comboBox" class="form-label">Turno</label>
+        <select wire:model="horario.turno" class="form-select form-control" id="comboBox" disabled>
+          <option value="">Seleccionar</option>
+          <option value="matutino">Matutino</option>
+          <option value="vespertino">Vespertino</option>
+          <option value="nocturno">Nocturno</option>
+      </select>
+          @error('horario.turno') <span class = "text-danger">Corrige este campo</span>@enderror
+      </div>
       
 
 
@@ -57,9 +57,11 @@
         <div class="col-auto">
           <button class="btn btton" id="cancelar" wire:click = "cancel">Cancelar</button>
         </div>
+        @if($horario->grupos->count()==0)
         <div class="col-auto">
-          <button class="btn btton" id="baja" wire:click = "delete">Baja</button>
+          <button class="btn btton" id="baja" wire:click = "delete">Eliminar</button>
         </div>
+        @endif
       </div>
     </div>
   </div>

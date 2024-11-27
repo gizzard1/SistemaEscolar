@@ -13,4 +13,14 @@ class carrera extends Model
         'semestres'
     ];
 
+    public function alumnos()
+    {
+        return $this->hasMany(alumno::class,'carrera_id');
+    }
+
+    public function maestros()
+    {
+        return $this->hasMany(maestro::class,'carrera_id');
+    }
+
 }

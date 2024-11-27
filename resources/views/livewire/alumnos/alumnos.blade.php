@@ -1,4 +1,3 @@
-@if(Auth::user()->role=="coordinador")
 <div class="container">
     <div class="search-section text-center">
       <h2>Alumnos</h2>
@@ -65,27 +64,5 @@
         <div class="col-auto">
           <button class="btn btton" id="baja" wire:click = "delete">Baja</button>
         </div>
-      </div>
-
-@endif
-
-@if(Auth::user()->role=="alumno")
-<div id="input-section">
-        <div class="mb-3">
-            <label for="">Carrera: </label><br>
-            <select wire:model="alumno.carrera_id" name="carrera" id="carrera">
-                <option value="">--Seleccionar--</option>
-            </select>
-            @error('alumno.carrera_id') <span class = "text-danger">Corrige este campo</span>@enderror
-        </div>
-        <div class="mb-3">
-            <label for="">Materia: </label><br>
-            <select wire:model="materia.asignatura" name="materia" id="materia">
-                <option value="">--Seleccionar--</option>
-            </select>
-            @error('materia.asignatura') <span class = "text-danger">Corrige este campo</span>@enderror
-            <input type="text" name="" id="materias" readonly>
-        </div>
-
+    </div>
 </div>
-@endif

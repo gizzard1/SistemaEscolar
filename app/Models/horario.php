@@ -15,4 +15,8 @@ class horario extends Model
         'hora_fin'
     ];
     
+    public function grupos()
+    {
+        return $this->hasMany(grupo::class,'horario_id');
+    }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('semestre');
             $table->integer('alumnos');
             $table->date('ciclo');
-            $table->date('duracion');
+            $table->varchar('duacion');
             $table->foreignId('carrera_id')->constrained('carreras');
             $table->foreignId('materia_id')->constrained('materias');
             $table->foreignId('maestro_id')->constrained('maestros');

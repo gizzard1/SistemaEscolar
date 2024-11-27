@@ -28,9 +28,11 @@
         <div class="col-auto">
           <button class="btn btton" id="cancelar" wire:click = "cancel">Cancelar</button>
         </div>
+        @if($carrera->alumnos->count()==0&&$carrera->maestros->count()==0)
         <div class="col-auto">
           <button class="btn btton" id="baja" wire:click = "delete">Baja</button>
         </div>
+        @endif
       </div>
     </div>
   </div>

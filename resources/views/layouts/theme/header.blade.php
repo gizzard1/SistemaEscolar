@@ -30,20 +30,6 @@
 							</div>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
-							<a href="{{ route('profile.edit') }}" class="dropdown-item ai-icon" style="color:#3375B6 !important">
-								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-								<span class="ml-2">Mi Perfil</span>
-							</a>
-							@if(isset(Auth::user()->empleado))
-							<a href="{{ route('mis-ganancias') }}" class="dropdown-item ai-icon" style="color:#2C942F">
-								<i class="las la-piggy-bank w-18"></i>
-								<span class="ml-2" >Mis Ganancias</span>
-							</a>
-							@endif
-							<a onclick="help()" class="dropdown-item ai-icon" style="color:black">
-								<i class="las la-info-circle w-18"></i>
-								<span class="ml-2">Ayuda</span>
-							</a>
 							<a href="{{ route('logout') }}" 
 							onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
 							class="dropdown-item ai-icon">
